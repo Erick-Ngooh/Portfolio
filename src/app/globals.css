@@ -23,3 +23,14 @@ body {
   background-color: #000;
   color: var(--color-dark-100);
 }
+
+@theme {
+  --box-center: flex justify-center items-center;
+}
+header {
+  @apply fixed top-0 z-50 w-full;
+
+  nav {  
+    @apply flex justify-between items-center container mx-auto px-2 h-[7vh];
+  }
+}
