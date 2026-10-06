@@ -41,7 +41,7 @@ header {
 
   nav {  
     @apply flex justify-between items-center container;
-    @apply mx-auto px-4 h-[7vh] lg:px-2;
+    @apply mx-auto pt-4 px-4 h-[7vh] lg:px-2;
 
   }
 
@@ -50,8 +50,20 @@ header {
     @apply max-md:scale-150 
   }
 
+  .nav-toggle {
+    @apply lg:hidden scale-150;
+  }
+
+  .nav-tabs {
+    @apply hidden lg:flex gap-4 text-white font-bold;
+
+    a {
+      @apply opacity-50 hover:opacity-100 slow-transition
+    }
+  } 
+
   .nav-box {
-    @apply flex flex-col justify-center w-full gap-4 p-4 bg-black fixed top-0 left-0 z-50;
+    @apply flex flex-col justify-center w-full gap-4 p-4 bg-black fixed top-0 left-0 z-60;
     @apply slow-transition-xl;
   
     .nav-link {
@@ -65,11 +77,11 @@ header {
   }
 
   .nav-box-closed {
-    @apply -translate-y-full;
+    @apply -translate-y-full pointer-events-none;
   }
 
   .nav-box-open {
-    @apply translate-y-0;
+    @apply translate-y-0 pointer-events-auto;
   }
 
 }

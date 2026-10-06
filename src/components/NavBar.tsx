@@ -23,6 +23,20 @@ const NavBox = ({ isOpen }: { isOpen: boolean }) => {
     );
 }
 
+const NavTabs = () => {
+    return (
+        <>
+            <div className="nav-tabs">
+                {portfolioSections.map((section: { id: string; href: string; label: string }) => (
+                    <a key={section.id} href={section.href}>
+                        {section.label}
+                    </a> 
+                ))}
+            </div>
+        </>
+    );
+}
+
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +47,8 @@ const NavBar = () => {
                     <a href="/">
                         <img id="logo" src="/logo.svg" alt="Logo"/> 
                     </a>
-                    <button onClick={() => setIsOpen(!isOpen)} className="nav-toggle">
+                    <NavTabs />
+                    <button type="button" onClick={() => setIsOpen(!isOpen)} className="nav-toggle">
                         <img src="/logo.svg" alt="Logo"/>
                     </button>
                 </nav> 
