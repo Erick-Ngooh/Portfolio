@@ -86,10 +86,10 @@ header {
   ========================= */
 
   .nav-box {
-    @apply fixed left-0 top-[10vh] z-[60];
-    @apply flex w-full flex-col justify-center;
-    @apply gap-4 p-12;
-    @apply bg-gray-900;
+    @apply fixed inset-0 z-[60];
+    @apply flex w-full h-dvh flex-col;
+    @apply gap-4 pt-[12vh] px-10;
+    @apply bg-gray-800 ;
 
     /* Le menu mobile n'existe visuellement
        que sous le breakpoint lg */
@@ -103,8 +103,8 @@ header {
     }
 
     .nav-cta {
-      @apply mx-auto mt-4;
-      @apply w-fit px-12 py-2;
+      @apply mx-auto mt-2;
+      @apply w-fit px-12;
 
       @apply rounded-3xl bg-white;
       @apply text-center text-2xl font-bold text-black;
@@ -116,7 +116,7 @@ header {
   ========================= */
 
   .nav-box-closed {
-    @apply -translate-y-150;
+    @apply -translate-y-full;
     @apply pointer-events-none;
   }
 
