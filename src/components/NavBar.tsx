@@ -17,7 +17,7 @@ const NavBox = ({ isOpen, onClose }: NavBoxProps) => {
         isOpen ? "nav-box-open" : "nav-box-closed"
       }`}
     >
-      {portfolioSections.map((section) => (
+      {portfolioSections.map((section, index) => (
         <a
           key={section.id}
           href={section.href}
@@ -25,9 +25,10 @@ const NavBox = ({ isOpen, onClose }: NavBoxProps) => {
           tabIndex={isOpen ? 0 : -1}
           className={
             section.id === "contact"
-              ? "nav-cta"
-              : "nav-link"
+              ? "nav-item nav-cta"
+              : "nav-item nav-link"
           }
+          style={{transitionDelay: `${index * 80}ms`}}
         >
           {section.label}
         </a>

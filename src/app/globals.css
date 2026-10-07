@@ -33,13 +33,13 @@ body {
 ========================= */
 
 header {
-  @apply fixed top-0 z-50 w-full bg-gray-900;
+  @apply fixed top-0 z-50 w-full bg-[#0B0F14]/75 backdrop-blur-2xl;;
 
   nav {
-    @apply container relative z-[70] mx-auto;
+    @apply container relative mx-auto;
     @apply flex items-center justify-between;
     @apply h-[10vh] px-4;
-    @apply lg:h-[8vh] lg:px-2;
+    @apply xl:h-[8vh] lg:px-2;
   }
 
   /* =========================
@@ -47,11 +47,11 @@ header {
   ========================= */
 
   #logo {
-    @apply scale-100;
-    @apply lg:scale-150;
-    @apply lg:opacity-50;
-    @apply lg:hover:opacity-100;
-    @apply lg:slow-transition;
+    @apply scale-100 ml-2;
+    @apply md:scale-150;
+    @apply xl:opacity-50;
+    @apply xl:hover:opacity-100;
+    @apply xl:slow-transition;
   }
 
   /* =========================
@@ -59,8 +59,8 @@ header {
   ========================= */
 
   .nav-toggle {
-    @apply z-[70] scale-100;
-    @apply lg:hidden;
+    @apply z-[70] md:scale-150;
+    @apply xl:hidden;
   }
 
   /* =========================
@@ -69,12 +69,13 @@ header {
 
   .nav-tabs {
     @apply hidden;
-    @apply lg:absolute lg:left-1/2;
-    @apply lg:flex lg:-translate-x-1/2;
-    @apply lg:gap-4;
+    @apply xl:absolute lg:left-1/2;
+    @apply xl:flex lg:-translate-x-1/2;
+    @apply xl:gap-4;
     @apply text-white font-bold;
 
     a {
+      @apply whitespace-nowrap;
       @apply opacity-50;
       @apply hover:opacity-100;
       @apply slow-transition;
@@ -89,11 +90,13 @@ header {
     @apply fixed inset-0 z-[60];
     @apply flex w-full h-dvh flex-col;
     @apply gap-4 pt-[12vh] px-10;
-    @apply bg-gray-800 ;
+
+    @apply border  border-white/10;
+    @apply  bg-[#0B0F14]/75 backdrop-blur-2xl;
 
     /* Le menu mobile n'existe visuellement
        que sous le breakpoint lg */
-    @apply lg:hidden;
+    @apply xl:hidden;
 
     /* On anime uniquement ce qui doit bouger */
     @apply transition-transform duration-700 ease-in-out;
@@ -109,7 +112,29 @@ header {
       @apply rounded-3xl bg-white;
       @apply text-center text-2xl font-bold text-black;
     }
+
+    .nav-item {
+      @apply opacity-0 blur-md translate-y-3;
+      @apply transition-all duration-500 ease-out;
+    }
+   
   }
+
+ .nav-box-open {
+      @apply translate-y-0 pointer-events-auto;
+
+      .nav-item {
+        @apply opacity-100 blur-none translate-y-0;
+      }
+    }
+
+    .nav-box-closed {
+      @apply -translate-y-full pointer-events-none;
+
+      .nav-item {
+        @apply opacity-0 blur-md translate-y-3;
+      }
+    }
 
   /* =========================
      MOBILE MENU STATES
